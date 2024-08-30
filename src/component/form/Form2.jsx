@@ -5,6 +5,7 @@ const Form2 = () => {
     let [age, setAge] = React.useState(0)
     let [desc, setDesc] = React.useState("")
     let [married, setMarried] = React.useState(true)
+    let [country, setCountry] = React.useState("")
 
 
 
@@ -15,6 +16,8 @@ const Form2 = () => {
         console.log(username)
         console.log(age)
         console.log(desc)
+        console.log(married)
+        console.log(country)
         
       }} action="">
 <div>
@@ -37,6 +40,20 @@ const Form2 = () => {
       <input type="text" id = "desc" onChange={(e)=>
         setDesc(e.target.value)
       }/>
+</div>
+
+<div>
+  <label htmlFor="Country">Country</label>
+      <select name="" id="Country"
+      value={country}
+      onChange={(e)=>{
+        setCountry(e.target.value)
+      }}>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="Australia">Australia</option>
+      </select>
 </div>
 
 <div>
