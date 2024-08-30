@@ -4,6 +4,7 @@ const Form2 = () => {
     let [username, setUsername] = React.useState("")
     let [age, setAge] = React.useState(0)
     let [desc, setDesc] = React.useState("")
+    let [married, setMarried] = React.useState(true)
 
 
 
@@ -38,6 +39,12 @@ const Form2 = () => {
       }/>
 </div>
 
+<div>
+      <label htmlFor="chk">Is married:</label>
+      <input type="checkbox" checked={married} id = "chk" onChange={(e)=>
+        setMarried(e.target.checked)
+      }/>
+</div>
         <button>hi</button>
       </form>
     </div>
