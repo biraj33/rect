@@ -14,6 +14,8 @@ import LearnUseStateHook3 from './component/LearnUseStateHook3';
 import LearnUseStateHook4 from './component/LearnUseStateHook4';
 import Form1 from './component/form/Form1';
 import Form2 from './component/form/Form2';
+import Myroute from './component/Myroute';
+import Mylinks from './component/Mylinks';
 
 function App() {
   console.log("hi")
@@ -30,7 +32,9 @@ function App() {
 
       {/* <img src='./images.jpeg'/> */}
       {/* <Form1></Form1> */}
-      <Form2></Form2>
+      {/* <Form2></Form2> */}
+      <Myroute></Myroute>
+      <Mylinks></Mylinks>
     </div>
   );
 }
