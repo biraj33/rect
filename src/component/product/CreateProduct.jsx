@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { toast } from 'react-toastify'
 
 const CreateProduct = () => {
     let [productName, setName] = React.useState('')
@@ -18,12 +19,17 @@ const CreateProduct = () => {
 
         try{
           let result = await axios({
-            url: "https://66f4e14677b5e889709abc56.mockapi.io/product",
+            url: "https://66efb5b2f2a8bce81be3dd9f.mockapi.io/product",
             method: "post",
             data: data
           })
+          setName('')
+          setPrice('')
+          setQuantity('')
+          toast.success("Product Created Successfully")
           console.log(result)
         }catch(error){
+          toast.error("Something went wrong")
 
           console.log(error)
 

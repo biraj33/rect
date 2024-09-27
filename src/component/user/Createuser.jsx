@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 const Createuser = () => {
     let [fullname, setFullname] = React.useState("")
     let [email, setEmail] = React.useState("")
@@ -23,9 +24,14 @@ const Createuser = () => {
             method: "post",
             data: data
           }) 
-
+          setFullname("")
+          setNumber("")
+          setEmail("")
+          setPassword("")
           console.log(result)
+          toast.success("User Created Successfully")
         } catch (error) {
+          toast.error("Something went wrong")
           console.log(error)
           
         }
