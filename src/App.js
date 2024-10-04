@@ -21,6 +21,7 @@ function App() {
   console.log("hi")
   return (
     <div>
+      <Mylinks></Mylinks>
       {/* <Info1></Info1> */}
       {/* <Detail3 name = "Biraj" address = "Bhaktapur"></Detail3>
       <Teacher name = "Biraj" age = "12"></Teacher> */}
@@ -34,7 +35,7 @@ function App() {
       {/* <Form1></Form1> */}
       {/* <Form2></Form2> */}
       <Myroute></Myroute>
-      <Mylinks></Mylinks>
+ 
     </div>
   );
 }

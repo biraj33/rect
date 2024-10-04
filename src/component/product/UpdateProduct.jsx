@@ -1,11 +1,33 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-const CreateProduct = () => {
+
+const UpdateProduct = () => {
+    let params = useParams()
+    let navigate = useNavigate()
     let [productName, setName] = React.useState('')
     let [price, setPrice] = React.useState('')
     let [quantity, setQuantity] = React.useState('')
+    const getData = async ()=>{
+        try{
+            let result = await axios({
+                url:`https://66efb5b2f2a8bce81be3dd9f.mockapi.io/product/${params.id}`,
+                method:"GET"
+            })
+            setName(result.data.productName)
+            setPrice(result.data.price)
+            setQuantity(result.data.quantity)
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
+
   return (
     <div>
         <form onSubmit={async (e) => {
@@ -19,16 +41,12 @@ const CreateProduct = () => {
 
         try{
           let result = await axios({
-            url: "https://66efb5b2f2a8bce81be3dd9f.mockapi.io/product",
-            method: "post",
+            url: `https://66efb5b2f2a8bce81be3dd9f.mockapi.io/product/${params.id}`,
+            method: "PUT",
             data: data
           })
-          setName('')
-          setPrice('')
-          setQuantity('')
-          toast.success("Product Created Successfully")
-          console.log(result)
-          
+          toast.success("Product Updated Successfully")
+          navigate(`/product/view/${params.id}`)
         }catch(error){
           toast.error("Something went wrong")
 
@@ -56,9 +74,8 @@ const CreateProduct = () => {
         </div>
 
       </form>
-      
     </div>
   )
 }
 
-export default CreateProduct
+export default UpdateProduct
